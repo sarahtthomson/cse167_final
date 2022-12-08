@@ -1,0 +1,26 @@
+body {
+    background-color: antiquewhite;
+    padding: 5%;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h3 {
+    font-weight: 1000;
+    color: red;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+#equation {
+    max-width: 30%;
+}
+
+#bunny {
+    max-width: 500px;
+}
+

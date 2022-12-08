@@ -2,7 +2,76 @@
 <html lang="en">
     <head>
         <Title>CSE 167 Final</Title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h1>Rigid Body Simulation</h1>
+    <h1>Rigid Body Simulation</h1>
+    <h2>by Meron Asfaw and Sarah Thomson</h2>
+
+    <h3>Step 1: Rigid Bodies</h3>
+        <h4>What are Rigid Bodies?</h4>
+        <p>
+            In this final project topic, we produce a physics-based animation. Specifically, we simulate rigid
+            body motion in 3D.<br><br>
+            In terms of affine transformations we learned in the course, it is easy to describe what happens for a rigid body. As a standard description, there is a model coordinate where the vertex
+            position (and other attributes) of the geometric object are defined. Then,
+            there is a model matrix T ∈ R<sup>4x4</sup>, that sends the positions in the model
+            coordinate to the positions in the world coordinate:
+        </p>
+        <img id="equation" src="images/mat4.png" alt="mat4">
+        <br>
+        <img id="bunny" src="images/rigid.png" alt="rigid">
+
+    <h3>Step 2: Rotation of Rigid Bodies</h3>
+        <h4>What are Rotational Bodies?</h4>
+        <p>
+            For a rigid body motion, it is T that changes over time,
+            constituting an animation of object moving in the world. The vertex
+            positions defined under the model coordinate remain static;
+            they are stored in some vertex buers initially and never require
+            any update. Moreover, for arigid body, the time-dependent model
+            matrix always takes the form of “first a rotation about the center
+            of mass, followed by a translation”:
+        </p>
+        <img id="equation" src="images/mat4_2.png" alt="mat4_2">
+        <br>
+        <video id="bunny" src="images/rigid_rotation.mp4" controls></video>
+
+    <h3>Step 3: Rotational Bodies Inertia</h3>
+        <h4>What is Rotational Bodies Inertia?</h4>
+        <p>
+            A fundamental assumption of rigid body motion is that the moment of
+            inertia depends only on the shape of the geometry, which is
+            completely static when we are in the model coordinate.
+            In short: M<sub>model</sub> is time-independent. A common practice
+            is to set the model coordinate to align with the eigenvectors of
+            Mmodel so that we can simply assume the M<sub>model</sub> would be:
+        </p>
+        <img id="equation" src="images/inertia.png" alt="inertia">
+        <p>
+            The angular momentum of the system is given by the following vector in the world coordinate:
+        </p>
+        <img id="equation" src="images/momentum.png" alt="momentum">
+        <br>
+        <video id="bunny" src="images/rigid_inertia.mp4" controls></video>
+        <h4>Conservation law</h4>
+        <p>
+            In a rigid body motion, we have conservation of energy and
+            conservation of angular momentum. More precisely,
+            <li>E<sub>kinetic</sub> remains constant. (Conservation of energy)</li> 
+            <li>L remains constant (in the world coordinate). (Conservation of
+            angular momentum)</li>
+            <li>Mmodel ramins constant. (Rigidity)</li>
+            These conservation laws alone allow us to develop the animation.
+        </p>
+    <h3>Step 4: Poinsot's ellipsoids</h3>
+        <h4>What is Poinsot's ellipsoids?</h4>
+        <p>
+
+        </p>
+        <img id="bunny" src="images/pointsot.png" alt="rigid">
+    
+    <h3>Step 5: Put it all together</h3>
+        <video id="bunny" src="images/all_together.mp4" controls></video>
+
     </body>
